@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Awilo for MP | Ugenya Constituency</title>
+  <meta name="description" content="Official campaign website for Awilo for MP, Ugenya Constituency. A fresh vision for unity, service, and progress." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#0b3d91;
+      --secondary:#d4af37;
+      --dark:#081224;
+      --light:#f8fafc;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --white:#ffffff;
+      --card:#ffffff;
+      --shadow:0 20px 50px rgba(0,0,0,0.12);
+      --radius:20px;
+      --max:1200px;
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:var(--light);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(92%, var(--max));
+      margin:auto;
+    }
+
+    /* Header */
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      z-index:1000;
+      background:rgba(8,18,36,0.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 0;
+    }
+
+    .logo{
+      display:flex;
+      flex-direction:column;
+      color:var(--white);
+    }
+
+    .logo strong{
+      font-size:1.2rem;
+      font-weight:800;
+      letter-spacing:0.5px;
+    }
+
+    .logo span{
+      font-size:0.8rem;
+      color:#d1d5db;
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex;
+      gap:24px;
+      align-items:center;
+    }
+
+    nav ul li a{
+      color:var(--white);
+      font-weight:500;
+      font-size:0.95rem;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:var(--secondary);
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 24px;
+      border-radius:999px;
+      font-weight:700;
+      transition:0.3s ease;
+    }
+
+    .btn-primary{
+      background:var(--secondary);
+      color:var(--dark);
+      box-shadow:0 10px 25px rgba(212,175,55,0.28);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-outline{
+      border:2px solid rgba(255,255,255,0.3);
+      color:var(--white);
+    }
+
+    .btn-outline:hover{
+      border-color:var(--secondary);
+      color:var(--secondary);
+    }
+
+    /* Hero */
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      background:
+        linear-gradient(rgba(8,18,36,0.72), rgba(8,18,36,0.78)),
+        url("images/awilo.jpg") center/cover no-repeat;
+      color:var(--white);
+      position:relative;
+    }
+
+    .hero-content{
+      max-width:760px;
+      padding-top:70px;
+    }
+
+    .tag{
+      display:inline-block;
+      padding:8px 16px;
+      border:1px solid rgba(255,255,255,0.25);
+      border-radius:999px;
+      margin-bottom:20px;
+      font-size:0.9rem;
+      color:#e5e7eb;
+      background:rgba(255,255,255,0.08);
+    }
+
+    .hero h1{
+      font-size:clamp(2.5rem, 5vw, 4.8rem);
+      line-height:1.05;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .hero h1 span{
+      color:var(--secondary);
+    }
+
+    .hero p{
+      font-size:1.08rem;
+      color:#e5e7eb;
+      max-width:650px;
+      margin-bottom:28px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:32px;
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(120px, 1fr));
+      gap:18px;
+      max-width:650px;
+    }
+
+    .stat{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:18px;
+      padding:18px;
+      backdrop-filter:blur(5px);
+    }
+
+    .stat h3{
+      font-size:1.6rem;
+      color:var(--secondary);
+      margin-bottom:4px;
+    }
+
+    .stat p{
+      font-size:0.92rem;
+      margin:0;
+      color:#f1f5f9;
+    }
+
+    /* Section */
+    section{
+      padding:90px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 50px;
+    }
+
+    .section-title h2{
+      font-size:2.3rem;
+      color:var(--dark);
+      margin-bottom:12px;
+      font-weight:800;
+    }
+
+    .section-title p{
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    /* About */
+    .about-grid{
+      display:grid;
+      grid-template-columns:1.1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .about-card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .about-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      min-height:460px;
+    }
+
+    .about-text h3{
+      font-size:2rem;
+      margin-bottom:14px;
+      color:var(--dark);
+    }
+
+    .about-text p{
+      color:var(--muted);
+      margin-bottom:18px;
+    }
+
+    .mini-points{
+      display:grid;
+      gap:14px;
+      margin-top:24px;
+    }
+
+    .mini-point{
+      background:#fff;
+      padding:18px 20px;
+      border-left:5px solid var(--secondary);
+      border-radius:14px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+    }
+
+    .mini-point strong{
+      color:var(--dark);
+      display:block;
+      margin-bottom:5px;
+    }
+
+    /* Vision Mission */
+    .vm-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:28px;
+    }
+
+    .vm-card{
+      background:linear-gradient(145deg, #0b3d91, #081224);
+      color:var(--white);
+      padding:32px;
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+
+    .vm-card h3{
+      font-size:1.6rem;
+      margin-bottom:12px;
+      color:var(--secondary);
+    }
+
+    .vm-card p{
+      color:#e5e7eb;
+    }
+
+    /* Manifesto */
+    .manifesto-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:22px;
+    }
+
+    .manifesto-card{
+      background:var(--white);
+      padding:28px 22px;
+      border-radius:20px;
+      box-shadow:0 12px 30px rgba(0,0,0,0.07);
+      transition:0.3s ease;
+      border-top:4px solid var(--secondary);
+    }
+
+    .manifesto-card:hover{
+      transform:translateY(-8px);
+    }
+
+    .manifesto-card h4{
+      color:var(--primary);
+      margin-bottom:10px;
+      font-size:1.1rem;
+    }
+
+    .manifesto-card p{
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Values */
+    .values{
+      background:linear-gradient(180deg, #ffffff, #eef4fb);
+    }
+
+    .values-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:22px;
+    }
+
+    .value-card{
+      text-align:center;
+      background:var(--white);
+      border-radius:20px;
+      padding:28px 20px;
+      box-shadow:0 10px 28px rgba(0,0,0,0.06);
+    }
+
+    .value-card .icon{
+      width:68px;
+      height:68px;
+      margin:0 auto 16px;
+      border-radius:50%;
+      background:rgba(11,61,145,0.1);
+      display:grid;
+      place-items:center;
+      font-size:1.5rem;
+      color:var(--primary);
+      font-weight:800;
+    }
+
+    .value-card h4{
+      margin-bottom:8px;
+      color:var(--dark);
+    }
+
+    .value-card p{
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* CTA */
+    .cta{
+      background:linear-gradient(rgba(8,18,36,0.9), rgba(8,18,36,0.9)), url("images/awilo.jpg") center/cover no-repeat;
+      color:var(--white);
+      text-align:center;
+    }
+
+    .cta h2{
+      font-size:2.4rem;
+      margin-bottom:14px;
+    }
+
+    .cta p{
+      max-width:750px;
+      margin:0 auto 24px;
+      color:#e5e7eb;
+    }
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+    }
+
+    .contact-card{
+      background:#fff;
+      border-radius:22px;
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-card h3{
+      margin-bottom:14px;
+      color:var(--dark);
+    }
+
+    .contact-card p{
+      color:var(--muted);
+      margin-bottom:12px;
+    }
+
+    .contact-list{
+      display:grid;
+      gap:12px;
+      margin-top:20px;
+    }
+
+    .contact-list a{
+      color:var(--primary);
+      font-weight:600;
+    }
+
+    form{
+      display:grid;
+      gap:14px;
+    }
+
+    input, textarea{
+      width:100%;
+      border:1px solid #d1d5db;
+      border-radius:14px;
+      padding:14px 16px;
+      font-size:1rem;
+      font-family:inherit;
+      outline:none;
+    }
+
+    textarea{
+      min-height:150px;
+      resize:vertical;
+    }
+
+    input:focus, textarea:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 3px rgba(11,61,145,0.12);
+    }
+
+    button{
+      border:none;
+      cursor:pointer;
+      font-family:inherit;
+    }
+
+    /* Footer */
+    footer{
+      background:var(--dark);
+      color:#cbd5e1;
+      padding:28px 0;
+      text-align:center;
+    }
+
+    footer strong{
+      color:var(--white);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .manifesto-grid,
+      .values-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .about-grid,
+      .contact-grid,
+      .vm-grid{
+        grid-template-columns:1fr;
+      }
+
+      .about-card img{
+        min-height:350px;
+      }
+    }
+
+    @media (max-width: 768px){
+      .nav{
+        flex-direction:column;
+        gap:14px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:14px;
+      }
+
+      .hero{
+        text-align:center;
+      }
+
+      .hero-content{
+        margin:auto;
+      }
+
+      .hero-actions{
+        justify-content:center;
+      }
+
+      .hero-stats{
+        grid-template-columns:1fr;
+      }
+
+      .manifesto-grid,
+      .values-grid{
+        grid-template-columns:1fr;
+      }
+
+      .section-title h2,
+      .cta h2{
+        font-size:1.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <strong>AWILO FOR MP</strong>
+        <span>Ugenya Constituency</span>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#manifesto">Manifesto</a></li>
+          <li><a href="#values">Values</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="tag">A Fresh Vision for Ugenya</div>
+        <h1>Awilo for MP <span>Ugenya Constituency</span></h1>
+        <p>
+          A people-centered campaign built on unity, service, accountability, youth empowerment,
+          better education, quality healthcare, stronger roads, and real economic opportunities
+          for every family in Ugenya.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#manifesto" class="btn btn-primary">Read Manifesto</a>
+          <a href="#contact" class="btn btn-outline">Join the Movement</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <h3>Unity</h3>
+            <p>Bringing all people of Ugenya together.</p>
+          </div>
+          <div class="stat">
+            <h3>Service</h3>
+            <p>Leadership that listens and delivers.</p>
+          </div>
+          <div class="stat">
+            <h3>Progress</h3>
+            <p>Practical solutions for real change.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Awilo</h2>
+        <p>
+          A focused, visionary, and approachable leader committed to championing the needs
+          of the people of Ugenya with dignity, courage, and action.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card">
+          <img src="images/awilo.jpg" alt="Awilo for MP">
+        </div>
+
+        <div class="about-text">
+          <h3>Leadership rooted in the people</h3>
+          <p>
+            Awilo stands for a new generation of responsive leadership that puts people first.
+            This campaign is about restoring trust, expanding opportunities, and ensuring that
+            every ward and every family in Ugenya feels represented, respected, and supported.
+          </p>
+          <p>
+            With a heart for service and a clear commitment to development, Awilo seeks to
+            transform Ugenya through practical leadership, visible impact, and inclusive decision-making.
+          </p>
+
+          <div class="mini-points">
+            <div class="mini-point">
+              <strong>Accessible Leadership</strong>
+              A leader who listens to wananchi and acts on their priorities.
+            </div>
+            <div class="mini-point">
+              <strong>Development Focus</strong>
+              Committed to education, health, roads, water, trade, and youth empowerment.
+            </div>
+            <div class="mini-point">
+              <strong>Transparent Governance</strong>
+              Public service with integrity, openness, and accountability.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vision">
+    <div class="container">
+      <div class="section-title">
+        <h2>Vision & Mission</h2>
+        <p>
+          A clear roadmap for transforming Ugenya into a stronger, fairer, and more prosperous constituency.
+        </p>
+      </div>
+
+      <div class="vm-grid">
+        <div class="vm-card">
+          <h3>Vision</h3>
+          <p>
+            To build a united, empowered, and progressive Ugenya where every resident has access
+            to opportunity, quality services, and leadership they can trust.
+          </p>
+        </div>
+
+        <div class="vm-card">
+          <h3>Mission</h3>
+          <p>
+            To serve the people of Ugenya with integrity and purpose by championing inclusive development,
+            youth and women empowerment, better public services, and accountable representation in Parliament.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="manifesto">
+    <div class="container">
+      <div class="section-title">
+        <h2>Manifesto Priorities</h2>
+        <p>
+          A practical, people-first agenda focused on the everyday needs and long-term progress of Ugenya.
+        </p>
+      </div>
+
+      <div class="manifesto-grid">
+        <div class="manifesto-card">
+          <h4>Education Support</h4>
+          <p>
+            Promote fair bursary allocation, support schools, improve learning facilities, and expand opportunities for students.
+          </p>
+        </div>
+
+        <div class="manifesto-card">
+          <h4>Youth Empowerment</h4>
+          <p>
+            Create pathways for jobs, innovation, digital skills, sports growth, and entrepreneurship for the youth.
+          </p>
+        </div>
+
+        <div class="manifesto-card">
+          <h4>Healthcare Access</h4>
+          <p>
+            Advocate for better-equipped health centres, medicine availability, maternal care, and stronger community health services.
+          </p>
+        </div>
+
+        <div class="manifesto-card">
+          <h4>Roads & Infrastructure</h4>
+          <p>
+            Push for improved roads, bridges, public lighting, and connectivity to ease transport and unlock growth.
+          </p>
+        </div>
+
+        <div class="manifesto-card">
+          <h4>Water & Sanitation</h4>
+          <p>
+            Support clean water access, sanitation projects, and healthier living conditions across the constituency.
+          </p>
+        </div>
+
+        <div class="manifesto-card">
+          <h4>Agriculture & Trade</h4>
+          <p>
+            Empower farmers, support small traders, strengthen market access, and promote value addition for local produce.
+          </p>
+        </div>
+
+        <div class="manifesto-card">
+          <h4>Women Empowerment</h4>
+          <p>
+            Expand economic opportunities, support groups and enterprises, and strengthen women’s voice in leadership.
+          </p>
+        </div>
+
+        <div class="manifesto-card">
+          <h4>Transparent Leadership</h4>
+          <p>
+            Build trust through open communication, accountable representation, and regular engagement with the people.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values" id="values">
+    <div class="container">
+      <div class="section-title">
+        <h2>Leadership Values</h2>
+        <p>
+          The principles guiding Awilo’s service to the people of Ugenya.
+        </p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="icon">1</div>
+          <h4>Integrity</h4>
+          <p>Honest leadership anchored on trust, transparency, and responsibility.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="icon">2</div>
+          <h4>Unity</h4>
+          <p>Bringing together all communities, voices, and generations in Ugenya.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="icon">3</div>
+          <h4>Service</h4>
+          <p>Leadership that exists to serve the people and respond to real needs.</p>
+        </div>
+
+        <div class="value-card">
+          <div class="icon">4</div>
+          <h4>Progress</h4>
+          <p>Focused on practical solutions, development, and measurable impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>Together We Rise, Ugenya</h2>
+      <p>
+        This is more than a campaign. It is a movement for hope, dignity, opportunity,
+        and a better future for every village, every youth, every mother, every elder,
+        and every family in Ugenya.
+      </p>
+      <a href="#contact" class="btn btn-primary">Support the Campaign</a>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact & Join the Movement</h2>
+        <p>
+          Be part of the team shaping the future of Ugenya.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Campaign Contact</h3>
+          <p>Reach out for volunteering, partnership, media, or community engagement.</p>
+
+          <div class="contact-list">
+            <p><strong>Phone:</strong> <a href="tel:+254700000000">+254 700 000 000</a></p>
+            <p><strong>Email:</strong> <a href="mailto:info@awiloformp.com">info@awiloformp.com</a></p>
+            <p><strong>Location:</strong> Ugenya Constituency, Siaya County</p>
+            <p><strong>Slogan:</strong> Unity. Service. Progress.</p>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>Send a Message</h3>
+          <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="text" placeholder="Subject" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn btn-primary">Submit Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 <strong>Awilo for MP</strong> | Ugenya Constituency. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
