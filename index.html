@@ -4,24 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Awilo for MP | Ugenya Constituency</title>
-  <meta name="description" content="Official campaign website for Awilo for MP, Ugenya Constituency. A fresh vision for unity, service, and progress." />
+  <meta name="description" content="Official campaign website for Awilo for MP, Ugenya Constituency. Vision, mission, manifesto, personality, background and qualifications." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --primary:#0b3d91;
+      --primary:#0a2a66;
+      --primary-2:#123b8a;
       --secondary:#d4af37;
-      --dark:#081224;
-      --light:#f8fafc;
+      --secondary-soft:#f2df9b;
+      --dark:#08111f;
+      --dark-2:#0d1728;
       --text:#1f2937;
-      --muted:#6b7280;
+      --muted:#667085;
+      --light:#f7f9fc;
       --white:#ffffff;
       --card:#ffffff;
-      --shadow:0 20px 50px rgba(0,0,0,0.12);
-      --radius:20px;
-      --max:1200px;
+      --border:rgba(255,255,255,0.12);
+      --shadow:0 20px 60px rgba(2, 12, 27, 0.15);
+      --shadow-soft:0 10px 30px rgba(2, 12, 27, 0.08);
+      --radius:24px;
+      --max:1240px;
     }
 
     *{
@@ -35,7 +40,8 @@
       font-family:'Inter',sans-serif;
       background:var(--light);
       color:var(--text);
-      line-height:1.6;
+      line-height:1.65;
+      overflow-x:hidden;
     }
 
     a{
@@ -53,267 +59,528 @@
       margin:auto;
     }
 
+    .section-padding{
+      padding:100px 0;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:0.85rem;
+      font-weight:700;
+      letter-spacing:0.14em;
+      text-transform:uppercase;
+      color:var(--secondary);
+      margin-bottom:14px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:42px;
+      height:2px;
+      background:var(--secondary);
+      display:inline-block;
+    }
+
+    .section-heading{
+      max-width:760px;
+      margin:0 auto 54px;
+      text-align:center;
+    }
+
+    .section-heading h2{
+      font-size:clamp(2rem, 4vw, 3rem);
+      line-height:1.1;
+      color:var(--dark);
+      margin-bottom:14px;
+      font-weight:900;
+    }
+
+    .section-heading p{
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
     /* Header */
     header{
       position:fixed;
-      top:0;
-      left:0;
-      width:100%;
+      inset:0 0 auto 0;
       z-index:1000;
-      background:rgba(8,18,36,0.92);
-      backdrop-filter:blur(10px);
+      background:rgba(8,17,31,0.76);
+      backdrop-filter:blur(16px);
       border-bottom:1px solid rgba(255,255,255,0.08);
     }
 
-    .nav{
+    .nav-wrap{
       display:flex;
-      justify-content:space-between;
       align-items:center;
-      padding:16px 0;
+      justify-content:space-between;
+      min-height:82px;
+      gap:24px;
     }
 
     .logo{
       display:flex;
       flex-direction:column;
       color:var(--white);
+      line-height:1.1;
     }
 
     .logo strong{
-      font-size:1.2rem;
-      font-weight:800;
-      letter-spacing:0.5px;
+      font-size:1.1rem;
+      font-weight:900;
+      letter-spacing:.12em;
     }
 
     .logo span{
-      font-size:0.8rem;
-      color:#d1d5db;
+      color:#dbe3ef;
+      font-size:0.83rem;
+      margin-top:5px;
     }
 
     nav ul{
       list-style:none;
       display:flex;
-      gap:24px;
       align-items:center;
+      gap:28px;
     }
 
     nav ul li a{
-      color:var(--white);
-      font-weight:500;
+      color:#f8fafc;
       font-size:0.95rem;
-      transition:0.3s;
-    }
-
-    nav ul li a:hover{
-      color:var(--secondary);
-    }
-
-    .btn{
-      display:inline-block;
-      padding:14px 24px;
-      border-radius:999px;
-      font-weight:700;
+      font-weight:500;
+      position:relative;
       transition:0.3s ease;
     }
 
-    .btn-primary{
+    nav ul li a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-7px;
+      width:0;
+      height:2px;
       background:var(--secondary);
-      color:var(--dark);
-      box-shadow:0 10px 25px rgba(212,175,55,0.28);
+      transition:0.3s ease;
+    }
+
+    nav ul li a:hover{
+      color:var(--secondary-soft);
+    }
+
+    nav ul li a:hover::after{
+      width:100%;
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      color:var(--white);
+      font-size:1.8rem;
+      cursor:pointer;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 24px;
+      border-radius:999px;
+      font-weight:800;
+      transition:0.3s ease;
+      border:none;
+      cursor:pointer;
+      font-family:inherit;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--secondary), #f0cf63);
+      color:#241a00;
+      box-shadow:0 14px 30px rgba(212,175,55,0.28);
     }
 
     .btn-primary:hover{
       transform:translateY(-2px);
+      box-shadow:0 18px 36px rgba(212,175,55,0.34);
     }
 
     .btn-outline{
-      border:2px solid rgba(255,255,255,0.3);
+      border:1.6px solid rgba(255,255,255,0.28);
       color:var(--white);
+      background:rgba(255,255,255,0.04);
     }
 
     .btn-outline:hover{
       border-color:var(--secondary);
-      color:var(--secondary);
+      color:var(--secondary-soft);
+      background:rgba(255,255,255,0.08);
     }
 
     /* Hero */
     .hero{
       min-height:100vh;
-      display:flex;
-      align-items:center;
-      background:
-        linear-gradient(rgba(8,18,36,0.72), rgba(8,18,36,0.78)),
-        url("images/awilo.jpg") center/cover no-repeat;
-      color:var(--white);
+      padding:150px 0 80px;
       position:relative;
+      color:var(--white);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(212,175,55,0.12), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08), transparent 22%),
+        linear-gradient(115deg, rgba(8,17,31,0.88), rgba(10,42,102,0.82)),
+        url("images/awilo.jpg") center/cover no-repeat;
+      overflow:hidden;
     }
 
-    .hero-content{
-      max-width:760px;
-      padding-top:70px;
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to bottom, rgba(8,17,31,0.18), rgba(8,17,31,0.35));
+      pointer-events:none;
     }
 
-    .tag{
-      display:inline-block;
-      padding:8px 16px;
-      border:1px solid rgba(255,255,255,0.25);
+    .hero-grid{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:1.1fr 0.9fr;
+      gap:42px;
+      align-items:center;
+    }
+
+    .hero-copy .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 16px;
       border-radius:999px;
-      margin-bottom:20px;
-      font-size:0.9rem;
-      color:#e5e7eb;
       background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.18);
+      color:#eef4ff;
+      margin-bottom:22px;
+      font-size:0.92rem;
+      backdrop-filter:blur(10px);
     }
 
-    .hero h1{
-      font-size:clamp(2.5rem, 5vw, 4.8rem);
-      line-height:1.05;
-      font-weight:800;
+    .hero-copy h1{
+      font-size:clamp(2.8rem, 5.5vw, 5.3rem);
+      line-height:0.98;
+      font-weight:900;
       margin-bottom:18px;
+      letter-spacing:-0.03em;
     }
 
-    .hero h1 span{
+    .hero-copy h1 span{
       color:var(--secondary);
     }
 
-    .hero p{
+    .hero-copy p{
+      color:#dde6f3;
       font-size:1.08rem;
-      color:#e5e7eb;
-      max-width:650px;
-      margin-bottom:28px;
+      max-width:700px;
+      margin-bottom:30px;
     }
 
     .hero-actions{
       display:flex;
       flex-wrap:wrap;
       gap:14px;
-      margin-bottom:32px;
+      margin-bottom:34px;
     }
 
     .hero-stats{
       display:grid;
-      grid-template-columns:repeat(3, minmax(120px, 1fr));
-      gap:18px;
-      max-width:650px;
+      grid-template-columns:repeat(3, 1fr);
+      gap:16px;
+      max-width:720px;
     }
 
-    .stat{
-      background:rgba(255,255,255,0.08);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:18px;
+    .hero-stat{
       padding:18px;
-      backdrop-filter:blur(5px);
+      border-radius:20px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.14);
+      backdrop-filter:blur(12px);
     }
 
-    .stat h3{
-      font-size:1.6rem;
+    .hero-stat h3{
       color:var(--secondary);
-      margin-bottom:4px;
-    }
-
-    .stat p{
-      font-size:0.92rem;
-      margin:0;
-      color:#f1f5f9;
-    }
-
-    /* Section */
-    section{
-      padding:90px 0;
-    }
-
-    .section-title{
-      text-align:center;
-      max-width:760px;
-      margin:0 auto 50px;
-    }
-
-    .section-title h2{
-      font-size:2.3rem;
-      color:var(--dark);
-      margin-bottom:12px;
+      font-size:1.45rem;
+      margin-bottom:5px;
       font-weight:800;
     }
 
-    .section-title p{
-      color:var(--muted);
-      font-size:1rem;
+    .hero-stat p{
+      color:#ecf2fb;
+      font-size:0.93rem;
+      margin:0;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+      border:1px solid rgba(255,255,255,0.16);
+      border-radius:32px;
+      overflow:hidden;
+      box-shadow:0 30px 70px rgba(0,0,0,0.2);
+      backdrop-filter:blur(16px);
+    }
+
+    .hero-card img{
+      width:100%;
+      height:560px;
+      object-fit:cover;
+    }
+
+    .hero-card-content{
+      padding:24px;
+      background:rgba(8,17,31,0.6);
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-card-content h3{
+      font-size:1.4rem;
+      margin-bottom:8px;
+    }
+
+    .hero-card-content p{
+      color:#d7e3f3;
+      font-size:0.96rem;
     }
 
     /* About */
-    .about-grid{
-      display:grid;
-      grid-template-columns:1.1fr 1fr;
-      gap:40px;
-      align-items:center;
+    .about-section{
+      background:linear-gradient(180deg, #ffffff, #f7f9fc);
     }
 
-    .about-card{
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:34px;
+      align-items:stretch;
+    }
+
+    .glass-card, .premium-card{
+      background:rgba(255,255,255,0.82);
+      border:1px solid rgba(12,32,71,0.08);
+      border-radius:28px;
+      box-shadow:var(--shadow-soft);
+      padding:32px;
+    }
+
+    .premium-card.dark{
+      background:linear-gradient(160deg, #09152a, #0d244a);
+      color:var(--white);
+      box-shadow:0 22px 55px rgba(8,17,31,0.22);
+    }
+
+    .premium-card.dark p,
+    .premium-card.dark li{
+      color:#dbe4f0;
+    }
+
+    .premium-card h3,
+    .glass-card h3{
+      font-size:1.65rem;
+      margin-bottom:14px;
+      line-height:1.2;
+    }
+
+    .glass-card p,
+    .premium-card p{
+      color:var(--muted);
+      margin-bottom:16px;
+    }
+
+    .feature-list{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .feature-item{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      padding:16px 18px;
+      border-radius:18px;
+      background:#fff;
+      box-shadow:0 10px 24px rgba(2,12,27,0.05);
+    }
+
+    .feature-icon{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:rgba(212,175,55,0.16);
+      color:#7a5f08;
+      font-weight:900;
+      flex-shrink:0;
+    }
+
+    .feature-item strong{
+      display:block;
+      margin-bottom:4px;
+      color:var(--dark);
+    }
+
+    .feature-item span{
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Personality */
+    .personality-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:22px;
+    }
+
+    .trait-card{
+      background:#fff;
+      border-radius:24px;
+      padding:28px 22px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(10,42,102,0.06);
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .trait-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 18px 40px rgba(2,12,27,0.1);
+    }
+
+    .trait-number{
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg, var(--primary), var(--primary-2));
+      color:#fff;
+      font-weight:900;
+      margin-bottom:18px;
+    }
+
+    .trait-card h4{
+      font-size:1.12rem;
+      margin-bottom:8px;
+      color:var(--dark);
+    }
+
+    .trait-card p{
+      color:var(--muted);
+      font-size:0.96rem;
+    }
+
+    /* Vision mission */
+    .vm-section{
+      background:linear-gradient(180deg, #0c1730, #08111f);
+      color:var(--white);
+      position:relative;
       overflow:hidden;
     }
 
-    .about-card img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      min-height:460px;
+    .vm-section .section-heading h2{
+      color:var(--white);
     }
 
-    .about-text h3{
-      font-size:2rem;
+    .vm-section .section-heading p{
+      color:#d6e1ef;
+    }
+
+    .vm-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:26px;
+    }
+
+    .vm-card{
+      padding:34px;
+      border-radius:28px;
+      background:linear-gradient(160deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:0 20px 40px rgba(0,0,0,0.18);
+      backdrop-filter:blur(18px);
+    }
+
+    .vm-card h3{
+      font-size:1.55rem;
+      color:var(--secondary);
+      margin-bottom:12px;
+    }
+
+    .vm-card p{
+      color:#e6edf8;
+    }
+
+    /* Qualifications / background */
+    .split-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:26px;
+    }
+
+    .info-card{
+      background:#fff;
+      padding:32px;
+      border-radius:26px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .info-card h3{
+      font-size:1.5rem;
       margin-bottom:14px;
       color:var(--dark);
     }
 
-    .about-text p{
+    .info-card p{
       color:var(--muted);
-      margin-bottom:18px;
+      margin-bottom:14px;
     }
 
-    .mini-points{
+    .custom-list{
+      list-style:none;
       display:grid;
       gap:14px;
-      margin-top:24px;
+      margin-top:14px;
     }
 
-    .mini-point{
-      background:#fff;
-      padding:18px 20px;
-      border-left:5px solid var(--secondary);
-      border-radius:14px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.06);
+    .custom-list li{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      color:var(--muted);
+      padding-bottom:14px;
+      border-bottom:1px dashed rgba(10,42,102,0.12);
     }
 
-    .mini-point strong{
-      color:var(--dark);
-      display:block;
-      margin-bottom:5px;
+    .custom-list li:last-child{
+      border-bottom:none;
+      padding-bottom:0;
     }
 
-    /* Vision Mission */
-    .vm-grid{
+    .check{
+      width:26px;
+      height:26px;
+      border-radius:50%;
+      background:rgba(212,175,55,0.16);
+      color:#8b6c0e;
       display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:28px;
-    }
-
-    .vm-card{
-      background:linear-gradient(145deg, #0b3d91, #081224);
-      color:var(--white);
-      padding:32px;
-      border-radius:24px;
-      box-shadow:var(--shadow);
-    }
-
-    .vm-card h3{
-      font-size:1.6rem;
-      margin-bottom:12px;
-      color:var(--secondary);
-    }
-
-    .vm-card p{
-      color:#e5e7eb;
+      place-items:center;
+      font-size:0.85rem;
+      font-weight:900;
+      flex-shrink:0;
+      margin-top:2px;
     }
 
     /* Manifesto */
@@ -324,22 +591,47 @@
     }
 
     .manifesto-card{
-      background:var(--white);
-      padding:28px 22px;
-      border-radius:20px;
-      box-shadow:0 12px 30px rgba(0,0,0,0.07);
+      background:linear-gradient(180deg, #ffffff, #fbfcfe);
+      border-radius:24px;
+      padding:28px 24px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(10,42,102,0.06);
+      position:relative;
+      overflow:hidden;
       transition:0.3s ease;
-      border-top:4px solid var(--secondary);
+    }
+
+    .manifesto-card::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      width:100%;
+      height:5px;
+      background:linear-gradient(90deg, var(--secondary), #f0cf63);
     }
 
     .manifesto-card:hover{
       transform:translateY(-8px);
+      box-shadow:0 20px 40px rgba(2,12,27,0.1);
+    }
+
+    .manifesto-icon{
+      width:54px;
+      height:54px;
+      display:grid;
+      place-items:center;
+      border-radius:16px;
+      background:rgba(10,42,102,0.08);
+      color:var(--primary);
+      font-weight:900;
+      margin-bottom:16px;
     }
 
     .manifesto-card h4{
-      color:var(--primary);
-      margin-bottom:10px;
+      color:var(--dark);
       font-size:1.1rem;
+      margin-bottom:10px;
     }
 
     .manifesto-card p{
@@ -347,83 +639,53 @@
       font-size:0.95rem;
     }
 
-    /* Values */
-    .values{
-      background:linear-gradient(180deg, #ffffff, #eef4fb);
-    }
-
-    .values-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:22px;
-    }
-
-    .value-card{
-      text-align:center;
-      background:var(--white);
-      border-radius:20px;
-      padding:28px 20px;
-      box-shadow:0 10px 28px rgba(0,0,0,0.06);
-    }
-
-    .value-card .icon{
-      width:68px;
-      height:68px;
-      margin:0 auto 16px;
-      border-radius:50%;
-      background:rgba(11,61,145,0.1);
-      display:grid;
-      place-items:center;
-      font-size:1.5rem;
-      color:var(--primary);
-      font-weight:800;
-    }
-
-    .value-card h4{
-      margin-bottom:8px;
-      color:var(--dark);
-    }
-
-    .value-card p{
-      color:var(--muted);
-      font-size:0.95rem;
-    }
-
     /* CTA */
     .cta{
-      background:linear-gradient(rgba(8,18,36,0.9), rgba(8,18,36,0.9)), url("images/awilo.jpg") center/cover no-repeat;
+      position:relative;
+      overflow:hidden;
+      background:
+        linear-gradient(115deg, rgba(8,17,31,0.93), rgba(10,42,102,0.88)),
+        url("images/awilo.jpg") center/cover no-repeat;
       color:var(--white);
+    }
+
+    .cta-wrap{
+      max-width:860px;
+      margin:auto;
       text-align:center;
     }
 
-    .cta h2{
-      font-size:2.4rem;
-      margin-bottom:14px;
+    .cta-wrap h2{
+      font-size:clamp(2.2rem, 4.8vw, 3.6rem);
+      line-height:1.05;
+      margin-bottom:16px;
+      font-weight:900;
     }
 
-    .cta p{
-      max-width:750px;
-      margin:0 auto 24px;
-      color:#e5e7eb;
+    .cta-wrap p{
+      color:#dde6f3;
+      margin-bottom:28px;
+      font-size:1.03rem;
     }
 
     /* Contact */
     .contact-grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:30px;
+      grid-template-columns:0.95fr 1.05fr;
+      gap:28px;
     }
 
     .contact-card{
       background:#fff;
-      border-radius:22px;
-      padding:30px;
-      box-shadow:var(--shadow);
+      border-radius:28px;
+      padding:34px;
+      box-shadow:var(--shadow-soft);
     }
 
     .contact-card h3{
-      margin-bottom:14px;
+      font-size:1.5rem;
       color:var(--dark);
+      margin-bottom:14px;
     }
 
     .contact-card p{
@@ -433,50 +695,66 @@
 
     .contact-list{
       display:grid;
-      gap:12px;
+      gap:16px;
       margin-top:20px;
     }
 
-    .contact-list a{
+    .contact-item{
+      padding:16px 18px;
+      border-radius:18px;
+      background:#f8fbff;
+      border:1px solid rgba(10,42,102,0.06);
+    }
+
+    .contact-item strong{
+      display:block;
+      color:var(--dark);
+      margin-bottom:4px;
+    }
+
+    .contact-item a{
       color:var(--primary);
-      font-weight:600;
+      font-weight:700;
     }
 
     form{
       display:grid;
+      gap:16px;
+    }
+
+    .input-row{
+      display:grid;
+      grid-template-columns:1fr 1fr;
       gap:14px;
     }
 
     input, textarea{
       width:100%;
-      border:1px solid #d1d5db;
-      border-radius:14px;
-      padding:14px 16px;
+      border:1px solid #d7deea;
+      background:#fcfdff;
+      border-radius:16px;
+      padding:15px 16px;
       font-size:1rem;
       font-family:inherit;
       outline:none;
+      transition:0.25s ease;
     }
 
     textarea{
-      min-height:150px;
+      min-height:160px;
       resize:vertical;
     }
 
     input:focus, textarea:focus{
       border-color:var(--primary);
-      box-shadow:0 0 0 3px rgba(11,61,145,0.12);
-    }
-
-    button{
-      border:none;
-      cursor:pointer;
-      font-family:inherit;
+      box-shadow:0 0 0 4px rgba(10,42,102,0.08);
+      background:#fff;
     }
 
     /* Footer */
     footer{
       background:var(--dark);
-      color:#cbd5e1;
+      color:#c9d4e3;
       padding:28px 0;
       text-align:center;
     }
@@ -485,60 +763,118 @@
       color:var(--white);
     }
 
-    /* Responsive */
-    @media (max-width: 1024px){
-      .manifesto-grid,
-      .values-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
+    /* Reveal animation */
+    .reveal{
+      opacity:0;
+      transform:translateY(30px);
+      transition:all 0.8s ease;
+    }
 
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px){
+      .hero-grid,
       .about-grid,
+      .split-grid,
       .contact-grid,
       .vm-grid{
         grid-template-columns:1fr;
       }
 
-      .about-card img{
-        min-height:350px;
+      .manifesto-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .personality-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .hero-card img{
+        height:460px;
       }
     }
 
-    @media (max-width: 768px){
-      .nav{
-        flex-direction:column;
-        gap:14px;
+    @media (max-width: 820px){
+      .menu-toggle{
+        display:block;
+      }
+
+      nav{
+        position:absolute;
+        top:82px;
+        left:0;
+        width:100%;
+        background:rgba(8,17,31,0.98);
+        border-top:1px solid rgba(255,255,255,0.08);
+        display:none;
+      }
+
+      nav.show{
+        display:block;
       }
 
       nav ul{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:14px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        padding:14px 4%;
+      }
+
+      nav ul li{
+        width:100%;
+      }
+
+      nav ul li a{
+        display:block;
+        width:100%;
+        padding:14px 0;
+      }
+
+      .nav-actions .btn{
+        display:none;
       }
 
       .hero{
-        text-align:center;
-      }
-
-      .hero-content{
-        margin:auto;
-      }
-
-      .hero-actions{
-        justify-content:center;
+        padding-top:130px;
       }
 
       .hero-stats{
         grid-template-columns:1fr;
       }
 
+      .input-row{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 640px){
       .manifesto-grid,
-      .values-grid{
+      .personality-grid{
         grid-template-columns:1fr;
       }
 
-      .section-title h2,
-      .cta h2{
-        font-size:1.9rem;
+      .section-padding{
+        padding:78px 0;
+      }
+
+      .glass-card,
+      .premium-card,
+      .info-card,
+      .contact-card,
+      .vm-card{
+        padding:24px;
+      }
+
+      .hero-card img{
+        height:360px;
+      }
+
+      .hero-copy h1{
+        font-size:2.6rem;
       }
     }
   </style>
@@ -546,279 +882,397 @@
 <body>
 
   <header>
-    <div class="container nav">
+    <div class="container nav-wrap">
       <div class="logo">
         <strong>AWILO FOR MP</strong>
         <span>Ugenya Constituency</span>
       </div>
 
-      <nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+
+      <nav id="navMenu">
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
-          <li><a href="#vision">Vision</a></li>
+          <li><a href="#personality">Personality</a></li>
+          <li><a href="#vision">Vision & Mission</a></li>
+          <li><a href="#background">Background</a></li>
           <li><a href="#manifesto">Manifesto</a></li>
-          <li><a href="#values">Values</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary">Join Campaign</a>
+      </div>
     </div>
   </header>
 
   <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-content">
-        <div class="tag">A Fresh Vision for Ugenya</div>
+    <div class="container hero-grid">
+      <div class="hero-copy reveal">
+        <div class="badge">A Fresh Vision for Ugenya</div>
         <h1>Awilo for MP <span>Ugenya Constituency</span></h1>
         <p>
-          A people-centered campaign built on unity, service, accountability, youth empowerment,
-          better education, quality healthcare, stronger roads, and real economic opportunities
-          for every family in Ugenya.
+          A premium people-centered campaign built on unity, dignity, service, accountability,
+          youth empowerment, better education, stronger healthcare, modern infrastructure,
+          and real economic opportunity for every family in Ugenya.
         </p>
 
         <div class="hero-actions">
-          <a href="#manifesto" class="btn btn-primary">Read Manifesto</a>
-          <a href="#contact" class="btn btn-outline">Join the Movement</a>
+          <a href="#manifesto" class="btn btn-primary">Explore Manifesto</a>
+          <a href="#about" class="btn btn-outline">Learn More</a>
         </div>
 
         <div class="hero-stats">
-          <div class="stat">
+          <div class="hero-stat">
             <h3>Unity</h3>
-            <p>Bringing all people of Ugenya together.</p>
+            <p>Bringing all people of Ugenya together under shared purpose.</p>
           </div>
-          <div class="stat">
+          <div class="hero-stat">
             <h3>Service</h3>
-            <p>Leadership that listens and delivers.</p>
+            <p>Leadership that listens, acts, and delivers visible impact.</p>
           </div>
-          <div class="stat">
+          <div class="hero-stat">
             <h3>Progress</h3>
-            <p>Practical solutions for real change.</p>
+            <p>Practical solutions that improve everyday life.</p>
           </div>
+        </div>
+      </div>
+
+      <div class="hero-card reveal">
+        <img src="images/awilo.jpg" alt="Awilo for MP">
+        <div class="hero-card-content">
+          <h3>Leadership. Dignity. Transformation.</h3>
+          <p>
+            A campaign for a stronger, fairer, and more prosperous Ugenya Constituency.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about">
+  <section class="about-section section-padding" id="about">
     <div class="container">
-      <div class="section-title">
-        <h2>About Awilo</h2>
+      <div class="section-heading reveal">
+        <div class="eyebrow">About the Candidate</div>
+        <h2>A leadership brand rooted in people, purpose, and progress</h2>
         <p>
-          A focused, visionary, and approachable leader committed to championing the needs
-          of the people of Ugenya with dignity, courage, and action.
+          Awilo represents a new generation of accessible, visionary, and development-focused leadership for Ugenya.
         </p>
       </div>
 
       <div class="about-grid">
-        <div class="about-card">
-          <img src="images/awilo.jpg" alt="Awilo for MP">
-        </div>
-
-        <div class="about-text">
-          <h3>Leadership rooted in the people</h3>
+        <div class="glass-card reveal">
+          <h3>About Awilo</h3>
           <p>
-            Awilo stands for a new generation of responsive leadership that puts people first.
-            This campaign is about restoring trust, expanding opportunities, and ensuring that
-            every ward and every family in Ugenya feels represented, respected, and supported.
+            Awilo is a focused, approachable, and visionary leader committed to championing the aspirations
+            of the people of Ugenya with courage, humility, and practical action.
           </p>
           <p>
-            With a heart for service and a clear commitment to development, Awilo seeks to
-            transform Ugenya through practical leadership, visible impact, and inclusive decision-making.
+            His leadership philosophy is anchored in servant leadership, accountability, and inclusive development.
+            He believes public office should be used to expand opportunity, restore trust, and improve the daily
+            lives of wananchi.
           </p>
 
-          <div class="mini-points">
-            <div class="mini-point">
-              <strong>Accessible Leadership</strong>
-              A leader who listens to wananchi and acts on their priorities.
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-icon">01</div>
+              <div>
+                <strong>Accessible Leadership</strong>
+                <span>A leader who listens, engages, and remains close to the people.</span>
+              </div>
             </div>
-            <div class="mini-point">
-              <strong>Development Focus</strong>
-              Committed to education, health, roads, water, trade, and youth empowerment.
+
+            <div class="feature-item">
+              <div class="feature-icon">02</div>
+              <div>
+                <strong>Development Focus</strong>
+                <span>Committed to education, health, roads, agriculture, youth, and economic transformation.</span>
+              </div>
             </div>
-            <div class="mini-point">
-              <strong>Transparent Governance</strong>
-              Public service with integrity, openness, and accountability.
+
+            <div class="feature-item">
+              <div class="feature-icon">03</div>
+              <div>
+                <strong>Trusted Representation</strong>
+                <span>Dedicated to transparency, dignity, and accountable public service.</span>
+              </div>
             </div>
           </div>
+        </div>
+
+        <div class="premium-card dark reveal">
+          <h3>Campaign Message</h3>
+          <p>
+            This campaign is about more than winning a seat. It is about giving Ugenya a stronger voice,
+            restoring confidence in leadership, and delivering visible, practical change that touches every village,
+            every home, and every generation.
+          </p>
+          <p>
+            Awilo believes in a Ugenya where young people can dream bigger, women can thrive economically,
+            farmers can access stronger markets, students can learn in better conditions, and families can
+            enjoy dignity through better services and infrastructure.
+          </p>
+          <p>
+            <strong style="color:#fff;">Slogan:</strong> Unity. Service. Progress.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="vision">
+  <section class="section-padding" id="personality">
     <div class="container">
-      <div class="section-title">
-        <h2>Vision & Mission</h2>
+      <div class="section-heading reveal">
+        <div class="eyebrow">Personality</div>
+        <h2>The values and character behind the leadership</h2>
         <p>
-          A clear roadmap for transforming Ugenya into a stronger, fairer, and more prosperous constituency.
+          Leadership is not just about position. It is about character, temperament, and how one treats people.
+        </p>
+      </div>
+
+      <div class="personality-grid">
+        <div class="trait-card reveal">
+          <div class="trait-number">1</div>
+          <h4>Humble</h4>
+          <p>Grounded in respect for people and committed to leadership that serves rather than dominates.</p>
+        </div>
+
+        <div class="trait-card reveal">
+          <div class="trait-number">2</div>
+          <h4>Approachable</h4>
+          <p>Believes leadership must remain close to wananchi, listen carefully, and respond with empathy.</p>
+        </div>
+
+        <div class="trait-card reveal">
+          <div class="trait-number">3</div>
+          <h4>Hardworking</h4>
+          <p>Focused on action, discipline, and consistent effort in turning ideas into real development outcomes.</p>
+        </div>
+
+        <div class="trait-card reveal">
+          <div class="trait-number">4</div>
+          <h4>Visionary</h4>
+          <p>Committed to long-term transformation, stronger institutions, and opportunities for future generations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vm-section section-padding" id="vision">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="eyebrow">Vision & Mission</div>
+        <h2>A clear roadmap for a stronger Ugenya</h2>
+        <p>
+          Leadership with direction, discipline, and measurable commitment to the people.
         </p>
       </div>
 
       <div class="vm-grid">
-        <div class="vm-card">
+        <div class="vm-card reveal">
           <h3>Vision</h3>
           <p>
-            To build a united, empowered, and progressive Ugenya where every resident has access
-            to opportunity, quality services, and leadership they can trust.
+            To build a united, empowered, and prosperous Ugenya Constituency where every resident has access
+            to quality education, responsive leadership, healthcare, economic opportunity, and dignified public services.
           </p>
         </div>
 
-        <div class="vm-card">
+        <div class="vm-card reveal">
           <h3>Mission</h3>
           <p>
-            To serve the people of Ugenya with integrity and purpose by championing inclusive development,
-            youth and women empowerment, better public services, and accountable representation in Parliament.
+            To provide transformative and accountable leadership by championing inclusive development, empowering youth
+            and women, supporting farmers and entrepreneurs, improving public infrastructure, and ensuring that the
+            people of Ugenya are effectively represented.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="manifesto">
+  <section class="section-padding" id="background">
     <div class="container">
-      <div class="section-title">
-        <h2>Manifesto Priorities</h2>
+      <div class="section-heading reveal">
+        <div class="eyebrow">Background & Qualifications</div>
+        <h2>A leader shaped by community, service, and purpose</h2>
         <p>
-          A practical, people-first agenda focused on the everyday needs and long-term progress of Ugenya.
+          This section can be updated with Awilo’s exact life story, academic profile, and public achievements.
+        </p>
+      </div>
+
+      <div class="split-grid">
+        <div class="info-card reveal">
+          <h3>Background</h3>
+          <p>
+            Awilo comes from a strong background of community engagement and public-minded leadership.
+            He understands the everyday realities affecting the people of Ugenya, including unemployment,
+            education challenges, healthcare gaps, infrastructure deficits, and limited economic opportunities.
+          </p>
+          <p>
+            Through his continued interaction with communities, local stakeholders, and development priorities,
+            he has built a reputation as a practical, listening, and people-focused mobilizer for progress.
+          </p>
+          <p>
+            Replace this section with his real personal story, work experience, leadership journey, and notable
+            contribution to the people of Ugenya.
+          </p>
+        </div>
+
+        <div class="info-card reveal">
+          <h3>Qualifications</h3>
+          <ul class="custom-list">
+            <li>
+              <span class="check">✓</span>
+              <span>Strong public engagement and leadership ability.</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span>Experience in community mobilization and development-focused initiatives.</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span>Commitment to accountability, integrity, and responsible public service.</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span>Passion for youth empowerment, education, women advancement, and economic transformation.</span>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <span>Capacity to articulate and defend the interests of Ugenya effectively at the national level.</span>
+            </li>
+          </ul>
+          <p style="margin-top:18px;">
+            Replace this with his actual academic qualifications, professional credentials, leadership positions held, and achievements.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding" id="manifesto">
+    <div class="container">
+      <div class="section-heading reveal">
+        <div class="eyebrow">Manifesto</div>
+        <h2>Priority agenda for the people of Ugenya</h2>
+        <p>
+          A practical manifesto focused on service delivery, empowerment, development, and opportunity.
         </p>
       </div>
 
       <div class="manifesto-grid">
-        <div class="manifesto-card">
+        <div class="manifesto-card reveal">
+          <div class="manifesto-icon">01</div>
           <h4>Education Support</h4>
-          <p>
-            Promote fair bursary allocation, support schools, improve learning facilities, and expand opportunities for students.
-          </p>
+          <p>Expand bursary opportunities, support schools, strengthen learning environments, and open more opportunities for students.</p>
         </div>
 
-        <div class="manifesto-card">
+        <div class="manifesto-card reveal">
+          <div class="manifesto-icon">02</div>
           <h4>Youth Empowerment</h4>
-          <p>
-            Create pathways for jobs, innovation, digital skills, sports growth, and entrepreneurship for the youth.
-          </p>
+          <p>Promote jobs, skills training, sports, innovation, digital opportunities, and entrepreneurship pathways for the youth.</p>
         </div>
 
-        <div class="manifesto-card">
-          <h4>Healthcare Access</h4>
-          <p>
-            Advocate for better-equipped health centres, medicine availability, maternal care, and stronger community health services.
-          </p>
+        <div class="manifesto-card reveal">
+          <div class="manifesto-icon">03</div>
+          <h4>Healthcare</h4>
+          <p>Push for better-equipped health facilities, improved medicine availability, maternal care, and accessible services.</p>
         </div>
 
-        <div class="manifesto-card">
-          <h4>Roads & Infrastructure</h4>
-          <p>
-            Push for improved roads, bridges, public lighting, and connectivity to ease transport and unlock growth.
-          </p>
+        <div class="manifesto-card reveal">
+          <div class="manifesto-icon">04</div>
+          <h4>Infrastructure</h4>
+          <p>Advocate for better roads, bridges, electricity, public lighting, and stronger digital connectivity.</p>
         </div>
 
-        <div class="manifesto-card">
-          <h4>Water & Sanitation</h4>
-          <p>
-            Support clean water access, sanitation projects, and healthier living conditions across the constituency.
-          </p>
-        </div>
-
-        <div class="manifesto-card">
+        <div class="manifesto-card reveal">
+          <div class="manifesto-icon">05</div>
           <h4>Agriculture & Trade</h4>
-          <p>
-            Empower farmers, support small traders, strengthen market access, and promote value addition for local produce.
-          </p>
+          <p>Support farmers, improve market access, encourage value addition, and strengthen the local business environment.</p>
         </div>
 
-        <div class="manifesto-card">
+        <div class="manifesto-card reveal">
+          <div class="manifesto-icon">06</div>
           <h4>Women Empowerment</h4>
-          <p>
-            Expand economic opportunities, support groups and enterprises, and strengthen women’s voice in leadership.
-          </p>
+          <p>Strengthen women groups, improve access to economic opportunities, and promote inclusive leadership participation.</p>
         </div>
 
-        <div class="manifesto-card">
+        <div class="manifesto-card reveal">
+          <div class="manifesto-icon">07</div>
+          <h4>Water & Sanitation</h4>
+          <p>Increase access to clean water, support sanitation projects, and improve public health conditions across communities.</p>
+        </div>
+
+        <div class="manifesto-card reveal">
+          <div class="manifesto-icon">08</div>
           <h4>Transparent Leadership</h4>
-          <p>
-            Build trust through open communication, accountable representation, and regular engagement with the people.
-          </p>
+          <p>Promote accountability, public participation, ethical governance, and consistent engagement with wananchi.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="values" id="values">
+  <section class="cta section-padding">
     <div class="container">
-      <div class="section-title">
-        <h2>Leadership Values</h2>
+      <div class="cta-wrap reveal">
+        <div class="eyebrow" style="justify-content:center;">Join the Movement</div>
+        <h2>Together We Rise, Together We Build Ugenya</h2>
         <p>
-          The principles guiding Awilo’s service to the people of Ugenya.
+          This campaign is a movement for hope, dignity, service, and transformation.
+          Let us work together for a constituency where leadership delivers, opportunity grows,
+          and every family feels seen, heard, and supported.
         </p>
-      </div>
-
-      <div class="values-grid">
-        <div class="value-card">
-          <div class="icon">1</div>
-          <h4>Integrity</h4>
-          <p>Honest leadership anchored on trust, transparency, and responsibility.</p>
-        </div>
-
-        <div class="value-card">
-          <div class="icon">2</div>
-          <h4>Unity</h4>
-          <p>Bringing together all communities, voices, and generations in Ugenya.</p>
-        </div>
-
-        <div class="value-card">
-          <div class="icon">3</div>
-          <h4>Service</h4>
-          <p>Leadership that exists to serve the people and respond to real needs.</p>
-        </div>
-
-        <div class="value-card">
-          <div class="icon">4</div>
-          <h4>Progress</h4>
-          <p>Focused on practical solutions, development, and measurable impact.</p>
-        </div>
+        <a href="#contact" class="btn btn-primary">Support the Campaign</a>
       </div>
     </div>
   </section>
 
-  <section class="cta">
+  <section class="section-padding" id="contact">
     <div class="container">
-      <h2>Together We Rise, Ugenya</h2>
-      <p>
-        This is more than a campaign. It is a movement for hope, dignity, opportunity,
-        and a better future for every village, every youth, every mother, every elder,
-        and every family in Ugenya.
-      </p>
-      <a href="#contact" class="btn btn-primary">Support the Campaign</a>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <div class="section-title">
-        <h2>Contact & Join the Movement</h2>
+      <div class="section-heading reveal">
+        <div class="eyebrow">Contact</div>
+        <h2>Connect with the campaign</h2>
         <p>
-          Be part of the team shaping the future of Ugenya.
+          Reach out for volunteering, partnership, media, support, or community engagement.
         </p>
       </div>
 
       <div class="contact-grid">
-        <div class="contact-card">
+        <div class="contact-card reveal">
           <h3>Campaign Contact</h3>
-          <p>Reach out for volunteering, partnership, media, or community engagement.</p>
+          <p>Be part of the team shaping the future of Ugenya Constituency.</p>
 
           <div class="contact-list">
-            <p><strong>Phone:</strong> <a href="tel:+254700000000">+254 700 000 000</a></p>
-            <p><strong>Email:</strong> <a href="mailto:info@awiloformp.com">info@awiloformp.com</a></p>
-            <p><strong>Location:</strong> Ugenya Constituency, Siaya County</p>
-            <p><strong>Slogan:</strong> Unity. Service. Progress.</p>
+            <div class="contact-item">
+              <strong>Phone</strong>
+              <a href="tel:+254700000000">+254 700 000 000</a>
+            </div>
+
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:info@awiloformp.com">info@awiloformp.com</a>
+            </div>
+
+            <div class="contact-item">
+              <strong>Location</strong>
+              Ugenya Constituency, Siaya County
+            </div>
+
+            <div class="contact-item">
+              <strong>Slogan</strong>
+              Unity. Service. Progress.
+            </div>
           </div>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card reveal">
           <h3>Send a Message</h3>
           <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
+            <div class="input-row">
+              <input type="text" placeholder="Your Name" required>
+              <input type="email" placeholder="Your Email" required>
+            </div>
             <input type="text" placeholder="Subject" required>
             <textarea placeholder="Your Message" required></textarea>
             <button type="submit" class="btn btn-primary">Submit Message</button>
@@ -834,5 +1288,34 @@
     </div>
   </footer>
 
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove("show");
+      });
+    });
+
+    const reveals = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+      reveals.forEach(item => {
+        const top = item.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (top < windowHeight - 80) {
+          item.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
 </body>
 </html>
